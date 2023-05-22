@@ -16,3 +16,6 @@ services:
 
     # The command we want to execute by default when running the container
     command: tail -f /dev/null
+
+    environment:
+      EDITOR: code --wait
