@@ -1,0 +1,18 @@
+services:
+  devcontainer:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: development
+      args:
+        DEVELOPER_UID: ${UID:-1000}
+        DEVELOPER_USERNAME: ${USER:-you}
+    image: vovimayhem/ohmyzsh${IMAGE_TAG:-:development}
+
+    volumes:
+      - .:/workspaces/ohmyzsh-devcontainer
+      - ./zshrc.zsh-template:/home/${USER:-you}/.zshrc
+      - ./devcontainers.zsh-theme:/home/${USER:-you}/.oh-my-zsh/custom/themes/devcontainers.zsh-theme
+
+    # The command we want to execute by default when running the container
+    command: tail -f /dev/null

@@ -1,0 +1,16 @@
+{
+  "name": "Oh my Zsh! on DevContainer",
+  "dockerComposeFile": [ "docker-compose.yml" ],
+  "shutdownAction": "stopCompose",
+  "service": "devcontainer",
+  "workspaceFolder": "/workspaces/ohmyzsh-devcontainer",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "github.copilot"
+      ]
+    }
+  }
+}
