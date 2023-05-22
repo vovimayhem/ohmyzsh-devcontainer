@@ -64,7 +64,7 @@ COPY --from=ohmyzsh --chown=${DEVELOPER_USERNAME}:${DEVELOPER_USERNAME} /home/ex
 COPY --chown=${DEVELOPER_USERNAME}:${DEVELOPER_USERNAME} ./devcontainers.zsh-theme /home/${DEVELOPER_USERNAME}/.oh-my-zsh/custom/themes/
 
 FROM ohmyzsh AS builder
-COPY --chown=example-user:example-user ./zshrc.zsh-template /home/example-user/.oh-my-zsh
+COPY --chown=example-user:example-user ./zshrc.zsh-template /home/example-user/.zshrc
 COPY --chown=example-user:example-user ./devcontainers.zsh-theme /home/example-user/.oh-my-zsh/custom/themes/
 RUN cd /home/example-user/.oh-my-zsh && git repack -a -d -f --depth=1 --window=1
 
