@@ -1,0 +1,10 @@
+.git/
+
+.github/
+
+Dockerfile
+docker-compose.yml
+.devcontainer.json
+
+LICENSE
+README.md
