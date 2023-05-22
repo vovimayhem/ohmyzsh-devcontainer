@@ -11,6 +11,7 @@ jobs:
   build-and-push-to-docker-hub:
     name: Build and Push to Docker Hub
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout the code
         uses: actions/checkout@v3.3.0
@@ -51,3 +52,12 @@ jobs:
           cache-to: type=gha,mode=max
           tags: ${{ steps.docker-image-metadata.outputs.tags }}
           labels: ${{ steps.docker-image-metadata.outputs.labels }}
+
+      - name: Update Description on Docker Hub
+        uses: peter-evans/dockerhub-description@v3.4.1
+        with:
+          username: vovimayhem
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          repository: vovimayhem/ohmyzsh
+          readme-filepath: ./README.md
+          short-description: ${{ github.event.repository.description }}
